@@ -1,0 +1,13 @@
+
+PREFERRED_WINDOW_SIZES = [
+    (1600, 1200),
+    (1600, 900),
+    (1024, 768),
+]
+
+WINDOW_TITLE = 'Shooter Game'
+
+FPS_TARGET = 60
+
+FONT_NAME_DEFAULT = 'monospace'
+FONT_SIZE_DEFAULT = 20
