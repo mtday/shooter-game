@@ -1,14 +1,19 @@
-
 import pygame
 
-from shooter.client.config.settings import FPS_TARGET
-from shooter.client.ui.window import Window
+from shooter.config.settings import FPS_TARGET
+from shooter.model.scout import Scout
+from shooter.model.attack import Attack
+from shooter.ui.window import Window
+from shooter.util.ship_mgr import ShipMgr
 
 
-class Client:
+class Game:
     def __init__(self):
         pygame.init()
         pygame.mixer.init()
+        self.ship_mgr = ShipMgr()
+        self.ship_mgr.add_ship(Scout())
+        self.ship_mgr.add_ship(Attack())
         self.window = Window(self)
         self.clock = pygame.time.Clock()
         self.running = False
@@ -29,8 +34,8 @@ class Client:
         self.running = False
 
     def draw(self):
-        self.window.draw()
+        self.window.draw(self.ship_mgr)
 
 
 if __name__ == '__main__':
-    Client().run()
+    Game().run()

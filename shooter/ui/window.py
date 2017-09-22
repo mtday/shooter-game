@@ -1,15 +1,17 @@
 
 import pygame
+import time
 
-from shooter.client.config.colors import BLACK
-from shooter.client.config.settings import PREFERRED_WINDOW_SIZES
-from shooter.client.config.settings import WINDOW_TITLE
+from shooter.config.colors import BLACK
+
+from shooter.config.settings import PREFERRED_WINDOW_SIZES
+from shooter.config.settings import WINDOW_TITLE
 
 
 class Window:
     def __init__(self, client):
         self.client = client
-        self.full_screen = True
+        self.full_screen = False
         (self.screen, self.window_settings) = Window.create_screen(self.full_screen)
         pygame.display.set_caption(WINDOW_TITLE)
 
@@ -43,6 +45,8 @@ class Window:
             elif event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
                 self.client.stop()
 
-    def draw(self):
+    def draw(self, ship_mgr):
         self.screen.fill(BLACK)
+        ship_mgr.draw(self.screen)
         pygame.display.flip()
+
