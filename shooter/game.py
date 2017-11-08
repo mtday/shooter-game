@@ -11,12 +11,12 @@ class Game:
     def __init__(self):
         pygame.init()
         pygame.mixer.init()
-        self.ship_mgr = ShipMgr()
-        self.ship_mgr.add_ship(Scout())
-        self.ship_mgr.add_ship(Attack())
         self.window = Window(self)
         self.clock = pygame.time.Clock()
         self.running = False
+        self.ship_mgr = ShipMgr()
+        self.ship_mgr.add_ship(Scout())
+        self.ship_mgr.add_ship(Attack())
 
     def handle_events(self):
         events = pygame.event.get()

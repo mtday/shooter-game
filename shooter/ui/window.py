@@ -11,7 +11,7 @@ from shooter.config.settings import WINDOW_TITLE
 class Window:
     def __init__(self, client):
         self.client = client
-        self.full_screen = False
+        self.full_screen = True
         (self.screen, self.window_settings) = Window.create_screen(self.full_screen)
         pygame.display.set_caption(WINDOW_TITLE)
 
@@ -21,7 +21,7 @@ class Window:
             window_settings = pygame.HWSURFACE | pygame.DOUBLEBUF | pygame.FULLSCREEN
             screen = pygame.display.set_mode(Window.get_display_mode(), window_settings)
         else:
-            window_settings = pygame.HWSURFACE | pygame.DOUBLEBUF
+            window_settings = pygame.DOUBLEBUF
             screen = pygame.display.set_mode(PREFERRED_WINDOW_SIZES[-1], window_settings)
         return screen, window_settings
 
