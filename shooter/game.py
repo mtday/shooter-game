@@ -15,8 +15,14 @@ class Game:
         self.clock = pygame.time.Clock()
         self.running = False
         self.ship_mgr = ShipMgr()
-        self.ship_mgr.add_ship(Scout())
-        self.ship_mgr.add_ship(Attack())
+        self.ship_mgr.add_ship(Scout(location=(100, 300)))
+        self.ship_mgr.add_ship(Scout(location=(250, 150)))
+        self.ship_mgr.add_ship(Attack(location=(500, 200)))
+        self.ship_mgr.add_ship(Attack(location=(700, 500)))
+
+        attack_ship = Attack(location=(200, 500))
+        attack_ship.selected = True
+        self.ship_mgr.add_ship(attack_ship)
 
     def handle_events(self):
         events = pygame.event.get()
