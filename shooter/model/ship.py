@@ -16,6 +16,7 @@ class Ship(pygame.sprite.Sprite):
         self.health = health
         self.direction = direction
         self.selected = False
+        self.has_moved = False
         pygame.sprite.Sprite.__init__(self)
 
         self.images = self.get_images()
@@ -39,6 +40,10 @@ class Ship(pygame.sprite.Sprite):
             'selected': self.get_image(self.ship_type + '.selected.png')
         }
         return images
+
+    def move(self, position):
+        self.location = position
+        self.has_moved = True
 
     def update(self):
         current_image = self.get_current_image()

@@ -27,6 +27,7 @@ class Game:
     def handle_events(self):
         events = pygame.event.get()
         self.window.handle_events(events)
+        self.ship_mgr.handle_events(events)
 
     def run(self):
         self.running = True

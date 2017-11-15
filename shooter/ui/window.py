@@ -11,7 +11,7 @@ from shooter.config.settings import WINDOW_TITLE
 class Window:
     def __init__(self, client):
         self.client = client
-        self.full_screen = True
+        self.full_screen = False
         (self.screen, self.window_settings) = Window.create_screen(self.full_screen)
         pygame.display.set_caption(WINDOW_TITLE)
 
